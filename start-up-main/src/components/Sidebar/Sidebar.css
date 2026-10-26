@@ -1,0 +1,152 @@
+.sidebar {
+    width: 240px;
+    flex-shrink: 0;
+    min-height: calc(100vh - 70px);
+
+    background: var(--surface, #ffffff);
+    border-right: 1px solid var(--border, #e5e7eb);
+
+    padding: 22px 14px;
+
+    box-sizing: border-box;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar-create {
+    margin-bottom: 24px;
+}
+
+.sidebar-create button {
+    width: 100%;
+
+    padding: 12px;
+
+    border: none;
+    border-radius: 10px;
+
+    background: #2563eb;
+    color: white;
+
+    font-size: 14px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+.sidebar-create button:hover {
+    background: #1d4ed8;
+    transform: translateY(-1px);
+}
+
+.sidebar-create span {
+    font-size: 18px;
+    margin-right: 5px;
+}
+
+.sidebar-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.sidebar-item {
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+
+    padding: 11px 13px;
+
+    border: none;
+    border-radius: 9px;
+
+    background: transparent;
+    color: var(--text-secondary, #4b5563);
+
+    text-align: left;
+
+    font-size: 14px;
+    font-weight: 500;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+.sidebar-item:hover {
+    background: var(--surface-secondary, #f3f4f6);
+    color: var(--text, #111827);
+}
+
+.sidebar-item.active {
+    background: #eff6ff;
+    color: #2563eb;
+    font-weight: 700;
+}
+
+body.escuro .sidebar-item.active {
+    background: #172554;
+    color: #93c5fd;
+}
+
+.sidebar-icon {
+    width: 22px;
+    text-align: center;
+    font-size: 17px;
+}
+
+.sidebar-bottom {
+    margin-top: auto;
+
+    padding-top: 20px;
+
+    border-top: 1px solid var(--border, #e5e7eb);
+}
+
+@media (max-width: 700px) {
+    .sidebar {
+        width: 100%;
+        min-height: 0;
+        flex-direction: row;
+        align-items: center;
+        gap: 10px;
+        padding: 10px 14px;
+        overflow-x: auto;
+        border-right: 0;
+        border-bottom: 1px solid var(--border, #e5e7eb);
+    }
+
+    .sidebar-create {
+        flex: 0 0 auto;
+        margin: 0;
+    }
+
+    .sidebar-create button,
+    .sidebar-item {
+        width: auto;
+        white-space: nowrap;
+    }
+
+    .sidebar-menu,
+    .sidebar-bottom {
+        display: flex;
+        flex: 0 0 auto;
+        flex-direction: row;
+    }
+
+    .sidebar-menu {
+        gap: 4px;
+    }
+
+    .sidebar-bottom {
+        margin: 0;
+        padding: 0;
+        border: 0;
+    }
+}

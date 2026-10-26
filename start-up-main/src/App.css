@@ -1,0 +1,256 @@
+
+/* =========================
+   VARIÁVEIS DO TEMA
+========================= */
+
+:root {
+  --bg: #f5f7fb;
+  --surface: #ffffff;
+  --surface-secondary: #f7f8fb;
+
+  --text: #171923;
+  --text-secondary: #737986;
+
+  --border: #e7e9ef;
+}
+
+
+/* =========================
+   TEMA ESCURO
+========================= */
+
+body.escuro {
+  --bg: #0f1117;
+  --surface: #171a22;
+  --surface-secondary: #20242d;
+
+  --text: #f3f4f6;
+  --text-secondary: #9ca3af;
+
+  --border: #272c38;
+}
+
+
+/* =========================
+   BODY
+========================= */
+
+body {
+  margin: 0;
+
+  background: var(--bg);
+  color: var(--text);
+
+  transition:
+    background 0.3s ease,
+    color 0.3s ease;
+}
+
+
+/* =========================
+   APP LOADING
+========================= */
+
+.app-loading {
+  min-height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  gap: 18px;
+
+  background:
+    radial-gradient(
+      circle at top,
+      #eef6ff 0%,
+      #f8fbff 38%,
+      #eef4fa 100%
+    );
+
+  color: #1e3a5f;
+
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+
+  position: relative;
+  overflow: hidden;
+}
+
+
+/* =========================
+   BRILHO DO LOADING
+========================= */
+
+.app-loading::before {
+  content: "";
+
+  position: absolute;
+
+  width: 320px;
+  height: 320px;
+
+  top: -160px;
+  left: -120px;
+
+  background: rgba(147, 197, 253, 0.25);
+
+  border-radius: 50%;
+
+  filter: blur(30px);
+
+  pointer-events: none;
+}
+
+.app-loading::after {
+  content: "";
+
+  position: absolute;
+
+  width: 260px;
+  height: 260px;
+
+  right: -100px;
+  bottom: -120px;
+
+  background: rgba(186, 230, 253, 0.35);
+
+  border-radius: 50%;
+
+  filter: blur(35px);
+
+  pointer-events: none;
+}
+
+
+/* =========================
+   SPINNER
+========================= */
+
+.app-loading-spinner {
+  width: 44px;
+  height: 44px;
+
+  border-radius: 50%;
+
+  border: 4px solid rgba(59, 130, 246, 0.15);
+
+  border-top-color: #2563eb;
+  border-right-color: #60a5fa;
+
+  animation: app-spin 0.85s linear infinite;
+
+  position: relative;
+  z-index: 1;
+
+  box-shadow:
+    0 8px 25px rgba(37, 99, 235, 0.15);
+}
+
+
+/* =========================
+   TEXTO DO LOADING
+========================= */
+
+.app-loading span {
+  position: relative;
+  z-index: 1;
+
+  color: #334e68;
+
+  animation:
+    app-loading-pulse 1.5s ease-in-out infinite;
+}
+
+
+/* =========================
+   ANIMAÇÕES
+========================= */
+
+@keyframes app-spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes app-loading-pulse {
+  0%,
+  100% {
+    opacity: 0.65;
+    transform: translateY(0);
+  }
+
+  50% {
+    opacity: 1;
+    transform: translateY(-2px);
+  }
+}
+
+/* Shared dark-theme defaults for page surfaces and form controls. */
+body.escuro .main-layout-content {
+  background: var(--bg);
+  color: var(--text);
+}
+
+body.escuro .main-layout-content > div {
+  background-color: var(--bg);
+  color: var(--text);
+}
+
+body.escuro .main-layout-content [class$="-card"]:not(button),
+body.escuro .main-layout-content [class$="-box"]:not(button),
+body.escuro .main-layout-content [class$="-panel"]:not(button),
+body.escuro .main-layout-content [class$="-widget"]:not(button),
+body.escuro .main-layout-content [class$="-list"]:not(button) {
+  background-color: var(--surface);
+  border-color: var(--border);
+  color: var(--text);
+}
+
+body.escuro .main-layout-content h1,
+body.escuro .main-layout-content h2,
+body.escuro .main-layout-content h3,
+body.escuro .main-layout-content h4 {
+  color: var(--text);
+}
+
+body.escuro .main-layout-content p,
+body.escuro .main-layout-content li,
+body.escuro .main-layout-content label {
+  color: var(--text-secondary);
+}
+
+body.escuro .main-layout-content strong {
+  color: var(--text);
+}
+
+body.escuro .main-layout-content input,
+body.escuro .main-layout-content textarea,
+body.escuro .main-layout-content select {
+  color-scheme: dark;
+}
+
+body.escuro .main-layout-content input:not([type="checkbox"]):not([type="radio"]),
+body.escuro .main-layout-content textarea,
+body.escuro .main-layout-content select {
+  border-color: var(--border);
+  background-color: var(--surface-secondary);
+  color: var(--text);
+}
+
+body.escuro .main-layout-content input::placeholder,
+body.escuro .main-layout-content textarea::placeholder {
+  color: var(--text-secondary);
+}
+
+body.escuro .main-layout-content input:focus-visible,
+body.escuro .main-layout-content textarea:focus-visible,
+body.escuro .main-layout-content select:focus-visible {
+  outline-color: #60a5fa;
+}
